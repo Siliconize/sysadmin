@@ -80,12 +80,25 @@ What the /etc/init.d/lxc-net script does:
 
 To access the container beyond the host, you'd need you need to do a port forward.
 
-If you are on an internal network, you can connect the hosts with the IP route utility.
+If you are on an internal network, you can connect the containers between hosts with the IP route utility.
 With a command like: 
 `ip route add ip/sub via ip`
+
+for this kind of routing to work the container subnets need to be different. 
+
+## VPN
+Via ipsec and gre you can connect two containers across several hosts across layer 3.
+
+## layer 2 through a layer 3 tunnel - distributed virtual switch
+How? Ethernet over GRE or l2tpv3. Plus you can use ipsec to encrypt the tunnels. 
+> Is this possible with wiregurad too?
+
 
 
 ## Sources
 - https://archives.flockport.com/flockport-labs-use-lxc-containers-as-routers/
 
 - https://archives.flockport.com/lxc-networking-guide/
+
+## Read Later
+https://www.reddit.com/r/Proxmox/comments/vdi7ea/comment/iclqkna/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
